@@ -6,6 +6,11 @@ from waitress import serve
 app = Flask(__name__)
 api = Api(app)
 
+class Okay(Resource):
+	def get(self):
+		return 'Okay'
+
 api.add_resource(Application, '/application')
+api.add_resource(Okay, '/')
 
 serve(app, host='0.0.0.0', port='8080')
