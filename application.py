@@ -1,4 +1,4 @@
-import application_planning_database
+import application_planning_database, psycopg2
 from flask_restful import Resource, reqparse
 
 class Application(Resource):
