@@ -2,6 +2,7 @@ from application import Application
 from flask import Flask
 from flask_restful import Api
 from waitress import serve
+from flask_restful import Resource
 
 app = Flask(__name__)
 api = Api(app)
