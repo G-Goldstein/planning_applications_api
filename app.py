@@ -1,5 +1,5 @@
 from application import Application
-from flask import flask
+from flask import Flask
 from flask_restful import Api
 from waitress import serve
 
