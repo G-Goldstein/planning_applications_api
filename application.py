@@ -1,4 +1,4 @@
-import application_planning_database, psycopg2
+import application_planning_database, psycopg2, os
 from flask_restful import Resource, reqparse
 
 DATABASE_URL = os.environ['DATABASE_URL']
