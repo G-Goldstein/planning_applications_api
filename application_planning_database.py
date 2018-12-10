@@ -21,7 +21,7 @@ def applications_by_validated_date(limit=25, offset=0, search=''):
 			FROM application
 			ORDER BY validated_date DESC, received_date DESC, reference DESC
 			LIMIT %s OFFSET %s
-		""", [limit, offset])
+		""", [int(limit), int(offset)])
 	for row in c.fetchmany(limit):
 		application = {
 			'reference': row[0],
