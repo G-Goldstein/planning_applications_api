@@ -3,10 +3,12 @@ from flask import Flask
 from flask_restful import Api
 from waitress import serve
 from flask_restful import Resource
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
 api = Api(app)
+CORS(app)
 
 class Okay(Resource):
 	def get(self):
