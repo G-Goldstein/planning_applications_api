@@ -1,11 +1,7 @@
-import application_planning_database, psycopg2, os
+import application_planning_database
 from flask_restful import Resource, reqparse
 
-DATABASE_URL = os.environ['DATABASE_URL']
-
 class Application(Resource):
-	def __init__(self):
-		self.conn = psycopg2.connect(DATABASE_URL)
 
 	def get(self):
 		limit, offset, search = self.get_args()
