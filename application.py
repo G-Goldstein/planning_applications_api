@@ -5,7 +5,7 @@ class Application(Resource):
 
 	def get(self):
 		limit, offset, search = self.get_args()
-		return list(application_planning_database.applications_by_validated_date(limit, offset))
+		return list(application_planning_database.applications_by_validated_date(limit, offset, search))
 
 	def get_args(self):
 		parser = reqparse.RequestParser()
