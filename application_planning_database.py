@@ -29,9 +29,10 @@ def applications_by_validated_date(limit=25, offset=0, search=''):
 			SELECT reference, title, link, address, TO_CHAR(received_date :: DATE, 'dd/mm/yyyy'), TO_CHAR(validated_date :: DATE, 'dd/mm/yyyy'), status
 			FROM application
 			WHERE to_tsquery(%s) @@ to_tsvector(title)
+			   OR to_tsquery(%s) @@ to_tsvector(address)
 			ORDER BY validated_date DESC, received_date DESC, reference DESC
 			LIMIT %s OFFSET %s
-		""", [search, int(limit), int(offset)])
+		""", [search, search, int(limit), int(offset)])
 	for row in c.fetchmany(int(limit)):
 		application = {
 			'reference': row[0],
